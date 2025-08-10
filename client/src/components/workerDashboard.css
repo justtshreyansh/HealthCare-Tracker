@@ -1,0 +1,126 @@
+/* UserDashboard.css */
+
+.dashboard-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  color: #222;
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #004aad;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dashboard-container h3 {
+  color: #004aad;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #004aad;
+  padding-bottom: 4px;
+}
+
+.dashboard-container p {
+  font-size: 16px;
+  color: #555;
+}
+
+.dashboard-container p.error-msg {
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+  color: red;
+}
+
+.daily-totals-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.daily-totals-list li {
+  background: #f0f4ff;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #003d99;
+}
+
+.shift-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.shift-table thead tr {
+  background-color: #004aad;
+  color: white;
+}
+
+.shift-table th,
+.shift-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-align: left;
+}
+
+.shift-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+.shift-table td {
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .shift-table,
+  .shift-table thead,
+  .shift-table tbody,
+  .shift-table th,
+  .shift-table td,
+  .shift-table tr {
+    display: block;
+  }
+
+  .shift-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .shift-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background: #f9faff;
+  }
+
+  .shift-table td {
+    border: none;
+    padding-left: 50%;
+    position: relative;
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .shift-table td::before {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #004aad;
+    content: attr(data-label);
+  }
+}

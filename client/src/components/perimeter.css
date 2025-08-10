@@ -1,0 +1,89 @@
+.perimeter-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 1.5rem;
+  background: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.perimeter-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.perimeter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.perimeter-form input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.primary-btn, .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+.primary-btn {
+  background: #007bff;
+  color: white;
+}
+.primary-btn:hover {
+  background: #0056b3;
+}
+
+.secondary-btn {
+  background: #eee;
+  color: #333;
+}
+.secondary-btn:hover {
+  background: #ddd;
+}
+
+.coords-display {
+  background: #f4f4f4;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.perimeter-saved {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: #e8f4ff;
+  border-radius: 6px;
+}
+.perimeter-saved p {
+  margin: 0.2rem 0;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .input-group {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2563eb; /* blue-600 */
+  padding: 0.75rem 1.5rem;
+  color: white;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.navbar__logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar__user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.navbar__user-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar__user-email {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.navbar__right {
+  flex-shrink: 0;
+}
+
+.navbar__error {
+  width: 100%;
+  margin-top: 0.5rem;
+  color: #f87171; /* red-400 */
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar__user {
+    margin: 0.5rem 0;
+  }
+}
