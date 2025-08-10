@@ -3,7 +3,7 @@ import "./perimeter.css";
 import { FaMapMarkerAlt, FaCrosshairs, FaSave } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+const API_BASE = import.meta.env.VITE_API_BASE;
 const PerimeterSet = () => {
   const [address, setAddress] = useState("");
   const [radius, setRadius] = useState(2000);
@@ -15,7 +15,7 @@ const PerimeterSet = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch("http://localhost:3000/getPerimeter", {
+    fetch(`${API_BASE}/getPerimeter`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -102,7 +102,7 @@ const PerimeterSet = () => {
     const payload = { lat, lng, radiusInMeter: radius, address };
 
     try {
-      const res = await fetch("http://localhost:3000/setPerimeter", {
+      const res = await fetch(`${API_BASE}/setPerimeter`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

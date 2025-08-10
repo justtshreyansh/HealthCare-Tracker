@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 
+const API_BASE = import.meta.env.VITE_API_BASE;
+
 const Signup = () => {
   const navigate = useNavigate();
 
@@ -35,7 +37,7 @@ const Signup = () => {
     setSuccess("");
 
     try {
-      const res = await fetch("http://localhost:3000/signup", {
+      const res = await fetch(`${API_BASE}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

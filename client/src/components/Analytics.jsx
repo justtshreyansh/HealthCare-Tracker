@@ -12,7 +12,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const API_BASE = "http://localhost:3000"; // Your backend URL
+const API_BASE = import.meta.env.VITE_API_BASE; // Your backend URL
 
 export default function ShiftSummaryDashboard() {
   const [summary, setSummary] = useState(null);

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
+const API_BASE = import.meta.env.VITE_API_BASE;
+
 const Login = () => {
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ const Login = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch(`${API_BASE}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -32,10 +34,9 @@ const Login = () => {
         localStorage.setItem("token", val.token);
 
         if (val.user.role === "manager") {
-
           navigate("/manager");
         } else {
-            console.log("worker");
+          console.log("worker");
           navigate("/worker");
         }
       }

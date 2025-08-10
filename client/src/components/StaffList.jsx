@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 function formatDateTime(dateStr) {
   if (!dateStr) return "N/A";
@@ -12,6 +12,16 @@ export default function StaffList({ token }) {
   const [expandedWorkerIds, setExpandedWorkerIds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  // Ref for dynamic maxHeight animation on each expanded block
+  const contentRefs = useRef({});
+
+  // Function to get maxHeight style dynamically
+  const getMaxHeight = (workerId) => {
+    const el = contentRefs.current[workerId];
+    if (!el) return "0px";
+    return expandedWorkerIds.includes(workerId) ? `${el.scrollHeight}px` : "0px";
+  };
 
   useEffect(() => {
     async function fetchShifts() {
@@ -44,16 +54,6 @@ export default function StaffList({ token }) {
         return [...prevExpanded, workerId];
       }
     });
-  };
-
-  // Ref for dynamic maxHeight animation on each expanded block
-  const contentRefs = useRef({});
-
-  // Function to get maxHeight style dynamically
-  const getMaxHeight = (workerId) => {
-    const el = contentRefs.current[workerId];
-    if (!el) return "0px";
-    return expandedWorkerIds.includes(workerId) ? `${el.scrollHeight}px` : "0px";
   };
 
   if (loading)
